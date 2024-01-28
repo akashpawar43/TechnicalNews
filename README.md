@@ -43,15 +43,15 @@ If you want to run the latest code from git, here's how to get started:
 
 1. Entertainment
 
-<img src="https://github.com/akashpawar43/sample/blob/master/src/assets/localhost_5173_entertainment.png" alt="project-screenshot" >
+<img src="https://github.com/akashpawar43/TechnicalNews/blob/master/src/assets/localhost_5173_entertainment.png" alt="project-screenshot" >
 
 2. Health
 
-<img src="https://github.com/akashpawar43/sample/blob/master/src/assets/localhost_5173_health.png" alt="project-screenshot" >
+<img src="https://github.com/akashpawar43/TechnicalNews/blob/master/src/assets/localhost_5173_health.png" alt="project-screenshot" >
 
 3. Technology
 
-<img src="https://github.com/akashpawar43/sample/blob/master/src/assets/localhost_5173_technology.png" alt="project-screenshot" >
+<img src="https://github.com/akashpawar43/TechnicalNews/blob/master/src/assets/localhost_5173_technology.png" alt="project-screenshot" >
 
 
 
