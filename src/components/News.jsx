@@ -4,8 +4,10 @@ import Spinner from './Spinner';
 import PropTypes from 'prop-types';
 import Navbar from './Navbar';
 
+const api_key = import.meta.env.VITE_API_KEY;
 
 export default class News extends Component {
+    
     static defaultProps = {
         country: 'in',
         pageSize: 8,
@@ -41,7 +43,7 @@ export default class News extends Component {
 
     async componentDidMount() {
         console.log("cdm");
-        let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=678e4e7064ff46048d2c5169a5a1fadb&pageSize=${this.props.pageSize}`;
+        let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${api_key}&pageSize=${this.props.pageSize}`;
         this.setState({ loading: true });
         let data = await fetch(url);
         let parsedData = await data.json();
@@ -55,7 +57,7 @@ export default class News extends Component {
 
     handlePrevClick = async () => {
         console.log("previous");
-        let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=678e4e7064ff46048d2c5169a5a1fadb&page=${this.state.page - 1}&pageSize=${this.props.pageSize}`;
+        let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${api_key}&page=${this.state.page - 1}&pageSize=${this.props.pageSize}`;
         this.setState({ loading: true });
         let data = await fetch(url);
         let parsedData = await data.json();
@@ -71,7 +73,7 @@ export default class News extends Component {
         console.log("next");
 
         if (!(this.state.page + 1 > Math.ceil(this.state.totalResults / this.props.pageSize))) {
-            let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=678e4e7064ff46048d2c5169a5a1fadb&page=${this.state.page + 1}&pageSize=${this.props.pageSize}`;
+            let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${api_key}&page=${this.state.page + 1}&pageSize=${this.props.pageSize}`;
             this.setState({ loading: true });
             let data = await fetch(url);
             let parsedData = await data.json();
@@ -85,6 +87,7 @@ export default class News extends Component {
     }
 
     render() {
+        
         return (
             <>
                 <section className='w-full bg-black'>
@@ -99,11 +102,11 @@ export default class News extends Component {
                                 </div>
                             ))}
                         </div>
-                        <div class="inline-flex p-8 justify-between w-full">
-                            <button disabled={this.state.page <= 1} class="bg-gray-200 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-l disabled:opacity-50 " onClick={this.handlePrevClick}>
+                        <div className="inline-flex p-8 justify-between w-full">
+                            <button disabled={this.state.page <= 1} className="bg-gray-200 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-l disabled:opacity-50 " onClick={this.handlePrevClick}>
                                 &larr; Prev
                             </button>
-                            <button disabled={this.state.page + 1 > Math.ceil(this.state.totalResults / this.props.pageSize)} class="bg-gray-200 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-r disabled:opacity-50" onClick={this.handleNextClick}>
+                            <button disabled={this.state.page + 1 > Math.ceil(this.state.totalResults / this.props.pageSize)} className="bg-gray-200 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-r disabled:opacity-50" onClick={this.handleNextClick}>
                                 Next &rarr;
                             </button>
                         </div>
